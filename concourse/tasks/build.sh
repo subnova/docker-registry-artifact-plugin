@@ -2,6 +2,7 @@
 
 set -eu
 
+chmod 777 -R source
 cd source
-gradle build
+gradle build --no-daemon
 
