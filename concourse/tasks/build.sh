@@ -2,5 +2,6 @@
 
 set -eu
 
-./gradlew build
+cd source
+gradle build
 
