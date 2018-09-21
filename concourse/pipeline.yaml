@@ -8,6 +8,7 @@ jobs:
 - name: build
   plan:
   - get: source
+    trigger: true
   - task: build
     file: source/concourse/tasks/build.yaml
 
