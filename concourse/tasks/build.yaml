@@ -1,0 +1,15 @@
+---
+plaform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: gradle
+    tag: 4.10.1-jdk10
+
+inputs:
+- name: source
+
+run:
+  path: source/concourse/tasks/build.sh
+

@@ -1,0 +1,13 @@
+resources:
+- name: source
+  type: git
+  source:
+    uri: https://github.com/subnova/docker-registry-artifact-plugin
+
+jobs:
+- name: build
+  plan:
+  - get: source
+  - task: build
+    file: source/concourse/tasks/build.yaml
+
