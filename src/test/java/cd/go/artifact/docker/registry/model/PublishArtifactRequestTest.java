@@ -34,9 +34,7 @@ public class PublishArtifactRequestTest {
                 "  },\n" +
                 "  \"artifact_store\": {\n" +
                 "    \"configuration\": {\n" +
-                "      \"RegistryURL\": \"public-registry-url\",\n" +
-                "      \"Username\": \"username\",\n" +
-                "      \"Password\": \"password\"\n" +
+                "      \"RegistryURL\": \"public-registry-url\"\n" +
                 "    },\n" +
                 "    \"id\": \"s3-store\"\n" +
                 "  },\n" +
@@ -49,7 +47,7 @@ public class PublishArtifactRequestTest {
 
         assertThat(publishArtifactRequest.getArtifactStore().getId()).isEqualTo("s3-store");
         assertThat(publishArtifactRequest.getArtifactStore().getArtifactStoreConfig())
-                .isEqualTo(new ArtifactStoreConfig("public-registry-url", "username", "password"));
+                .isEqualTo(new ArtifactStoreConfig("public-registry-url"));
 
         assertThat(publishArtifactRequest.getArtifactPlan())
                 .isEqualTo(new ArtifactPlan("installers", "s3-store", "alpine-build.json"));

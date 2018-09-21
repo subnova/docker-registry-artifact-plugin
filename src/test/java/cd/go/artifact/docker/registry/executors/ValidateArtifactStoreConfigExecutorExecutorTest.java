@@ -49,14 +49,6 @@ public class ValidateArtifactStoreConfigExecutorExecutorTest {
                 "  {\n" +
                 "    \"key\": \"RegistryURL\",\n" +
                 "    \"message\": \"RegistryURL must not be blank.\"\n" +
-                "  },\n" +
-                "  {\n" +
-                "    \"key\": \"Password\",\n" +
-                "    \"message\": \"Password must not be blank.\"\n" +
-                "  },\n" +
-                "  {\n" +
-                "    \"key\": \"Username\",\n" +
-                "    \"message\": \"Username must not be blank.\"\n" +
                 "  }\n" +
                 "]";
         JSONAssert.assertEquals(expectedJSON, response.responseBody(), JSONCompareMode.NON_EXTENSIBLE);
@@ -66,8 +58,6 @@ public class ValidateArtifactStoreConfigExecutorExecutorTest {
     public void shouldValidateProperData() throws JSONException {
         String requestBody = new JSONObject()
                 .put("RegistryURL", "http://localhost/index")
-                .put("Username", "chuck-norris")
-                .put("Password", "chuck-norris-doesnt-need-passwords")
                 .toString();
         when(request.requestBody()).thenReturn(requestBody);
 

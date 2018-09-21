@@ -28,36 +28,15 @@ public class ArtifactStoreConfig implements Validatable {
     @FieldMetadata(key = "RegistryURL", required = true)
     private String registryUrl;
 
-    @Expose
-    @SerializedName("Username")
-    @FieldMetadata(key = "Username", required = true)
-    private String username;
-
-    @Expose
-    @SerializedName("Password")
-    @FieldMetadata(key = "Password", required = true, secure = true)
-    private String password;
-
-
     public ArtifactStoreConfig() {
     }
 
-    public ArtifactStoreConfig(String registryUrl,String username, String password) {
+    public ArtifactStoreConfig(String registryUrl) {
         this.registryUrl = registryUrl;
-        this.username = username;
-        this.password = password;
     }
 
     public String getRegistryUrl() {
         return registryUrl;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     @Override
@@ -67,17 +46,12 @@ public class ArtifactStoreConfig implements Validatable {
 
         ArtifactStoreConfig that = (ArtifactStoreConfig) o;
 
-        if (registryUrl != null ? !registryUrl.equals(that.registryUrl) : that.registryUrl != null) return false;
-        if (username != null ? !username.equals(that.username) : that.username != null) return false;
-        return password != null ? password.equals(that.password) : that.password == null;
+        return (registryUrl != null ? registryUrl.equals(that.registryUrl) : that.registryUrl != null);
     }
 
     @Override
     public int hashCode() {
-        int result = registryUrl != null ? registryUrl.hashCode() : 0;
-        result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        return result;
+        return registryUrl != null ? registryUrl.hashCode() : 0;
     }
 
     public static ArtifactStoreConfig fromJSON(String json) {

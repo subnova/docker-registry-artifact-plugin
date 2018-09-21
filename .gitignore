@@ -11,3 +11,10 @@ build/
 !gradle-wrapper.jar
 out
 docker-registry-artifact-plugin.iml
+
+# VS Code
+.classpath
+.project
+.settings/
+.vscode/
+bin/

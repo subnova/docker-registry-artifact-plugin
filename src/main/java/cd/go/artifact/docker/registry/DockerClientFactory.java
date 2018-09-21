@@ -37,8 +37,7 @@ public class DockerClientFactory {
     }
 
     private static DefaultDockerClient createClient(ArtifactStoreConfig artifactStoreConfig) throws DockerCertificateException, DockerException, InterruptedException {
-        final RegistryAuthSupplierChain registryAuthSupplier = new RegistryAuthSupplierChain(artifactStoreConfig);
-        DefaultDockerClient docker = DefaultDockerClient.fromEnv().registryAuthSupplier(registryAuthSupplier).build();
+        DefaultDockerClient docker = DefaultDockerClient.fromEnv().build();
 
         LOG.info(format("Using docker registry server `{0}`.", artifactStoreConfig.getRegistryUrl()));
 
