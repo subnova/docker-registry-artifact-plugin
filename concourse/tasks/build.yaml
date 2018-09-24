@@ -10,6 +10,9 @@ image_resource:
 inputs:
 - name: source
 
+outputs:
+- name: output
+
 run:
   path: source/concourse/tasks/build.sh
 

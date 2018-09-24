@@ -4,11 +4,38 @@ resources:
   source:
     uri: https://github.com/subnova/docker-registry-artifact-plugin
 
+- name: version
+  type: semver
+  source:
+    driver: git
+    uri: https://github.com/subnova/docker-registry-artifact-plugin.git
+    branch: master
+    file: version
+    username: unused
+    password: ((github_token))
+    initial_version: 0.1.0
+
+- name: github-release
+  type: github-release
+  source:
+    owner: subnova
+    repository: docker-registry-artifact-plugin
+    access_token: ((github_token))
+
 jobs:
 - name: build
   plan:
   - get: source
     trigger: true
+  - put: version
+    params:
+      bump: patch
   - task: build
     file: source/concourse/tasks/build.yaml
+  - put: github-release
+    params:
+      name: version/version
+      tag: version/version
+      tag_prefix: v
+      globs: [output/*]
 
