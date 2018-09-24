@@ -4,8 +4,8 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: gradle
-    tag: 4.10.1-jdk10
+    repository: openjdk
+    tag: 9.0.4-12-jdk
 
 inputs:
 - name: source
