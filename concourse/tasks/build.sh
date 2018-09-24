@@ -7,6 +7,6 @@ BASEDIR=$(pwd)
 cd source
 ./gradlew build --no-daemon
 
-cp build/libs/* output
+cp build/libs/* $BASEDIR/output
 
 
